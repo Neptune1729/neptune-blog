@@ -96,41 +96,41 @@
         <p>REVERSE—glass</p>
 <ol>
 <li><p>下载附件得到glass.apk</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\1.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/gSb3djROLa5JhFP.png"></p>
 </li>
 <li><p>尝试使用dex2jar将glass.apk转化为jar文件</p>
 <ol>
 <li><p>将文件修改为zip文件：</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\2.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/zkdSyFeWRTn3HaM.png"></p>
 </li>
 <li><p>将解压后文件中的classes.dex文件转换为jar文件：</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\3.png"></p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\4.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/k1jEdthq6N5QBWR.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/gEw3mdAnUHLGicC.png"></p>
 </li>
 <li><p>把生成的classes-dex2jar.jar 拷入解压目录：</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\5.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/tHxZuF79zCaibQT.png"></p>
 </li>
 </ol>
 </li>
 <li><p>使用jd_gui工具查看jar文件</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\7.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/QsBe9ANDTugoh62.png"></p>
 <p>可以看出，源文件是通过调用相关函数判断输入的flag是否真确。</p>
 </li>
 <li><p>查看so文件</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\8.png"></p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\9.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/lZYF2GpnMxePLfu.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/m8CnMZW4bFQh2VA.png"></p>
 <ol>
 <li> 一层层对主函数进行分析：</li>
 </ol>
 <p>   定位到memcmp(v3,&amp;unk_467C,39u) == 0</p>
-<p>   <img src="/.xyz//SuperSuperBlog\source\image\10.png">]</p>
+<p>   <img src="https://i.loli.net/2021/05/20/e4aDSQ6pZxo8jsA.png">]</p>
 <ol start="2">
 <li><p>分析sub_10D4函数：</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\11.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/qoSk9eZBO6VlHut.png"></p>
 </li>
 <li><p>分析sub_FFC和sub_1088：</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\12.png"></p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\13.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/7ulABmwpJOgRCz8.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/Lvwu6l7tdHI4zsT.png"></p>
 <p>可以看出这两个是对输入的字符串进行RC4加密。</p>
 </li>
 </ol>
@@ -138,17 +138,16 @@
 <li><p>构造逆向脚本：</p>
 <ol>
 <li><p>进行函数逆向+base64解密：</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\14.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/uJOi32dxrAc4fLQ.png"></p>
 <p>得到加密后的字符串：</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\15.png"></p>
-</li>
+<img src="https://i.loli.net/2021/05/20/kyhqwtdIWDrJxOs.png" style="zoom:150%;"></li>
 <li><p>进行RC4解密：</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\16.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/QsNJvbYFU7598oe.png"></p>
 <p>​                                                    (安装pycryptodome库)</p>
 <p>编写加密解密脚本:</p>
-<p><img src="/.xyz//SuperSuperBlog\source\image\17.png"></p>
+<p><img src="https://i.loli.net/2021/05/20/DJi3T4e9g6KjXC1.png"></p>
 <p>得到flag:</p>
-<img src="/.xyz//SuperSuperBlog\source\image\18.png" style="zoom:150%;"></li>
+<img src="https://i.loli.net/2021/05/20/tyuNz5aTPUsk6QM.png" style="zoom:150%;"></li>
 </ol>
 </li>
 </ol>
