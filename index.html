@@ -71,6 +71,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ISCC-Garden" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/27/ISCC-Garden/" class="article-date">
+  <time class="dt-published" datetime="2021-05-27T02:21:08.000Z" itemprop="datePublished">2021-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/27/ISCC-Garden/">ISCC Garden</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="ISCC-Garden-复现"><a href="#ISCC-Garden-复现" class="headerlink" title="ISCC Garden 复现"></a>ISCC Garden 复现</h5><p>下载附件，拿到garden.pyc</p>
+<p>反编译一下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uncompyle6 -o test.py garden.pyc</span><br></pre></td></tr></table></figure>
+
+<p>得到test.py文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># uncompyle6 version 3.7.4</span></span><br><span class="line"><span class="comment"># Python bytecode 2.7 (62211)</span></span><br><span class="line"><span class="comment"># Decompiled from: Python 3.8.5 (default, Jan 27 2021, 15:41:15) </span></span><br><span class="line"><span class="comment"># [GCC 9.3.0]</span></span><br><span class="line"><span class="comment"># Embedded file name: garden.py</span></span><br><span class="line"><span class="comment"># Compiled at: 2021-02-28 12:29:29</span></span><br><span class="line"><span class="keyword">import</span> platform, sys, marshal, types</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span>(<span class="params">s</span>):</span></span><br><span class="line">    f = <span class="string">&#x27;2(88\x006\x1a\x10\x10\x1aIKIJ+\x1a\x10\x10\x1a\x06&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(s) != <span class="built_in">len</span>(f):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    checksum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> a, b <span class="keyword">in</span> <span class="built_in">zip</span>(f, s):</span><br><span class="line">        checksum += <span class="built_in">ord</span>(b) ^ <span class="built_in">ord</span>(a) ^ <span class="number">123</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> checksum == <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> sys.version_info.major != <span class="number">2</span> <span class="keyword">or</span> sys.version_info.minor != <span class="number">7</span>:</span><br><span class="line">    sys.exit(<span class="string">&#x27;试试 Python 2.7.&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) != <span class="number">2</span>:</span><br><span class="line">    sys.exit(<span class="string">&#x27;usage: bronze.pyc &lt;flag&gt;&#x27;</span>)</span><br><span class="line">flag = sys.argv[<span class="number">1</span>]</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(flag) &gt;= <span class="number">32</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;太长了.&#x27;</span></span><br><span class="line">    sys.exit(<span class="number">1</span>)</span><br><span class="line">alphabet = <span class="built_in">set</span>(<span class="string">&#x27;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&#123;&#125;!@#$%+&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> ch <span class="keyword">in</span> flag:</span><br><span class="line">    <span class="keyword">if</span> ch <span class="keyword">not</span> <span class="keyword">in</span> alphabet:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;不对.&#x27;</span></span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> check(flag):</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;就是这个!&#x27;</span></span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;搞错了.&#x27;</span></span><br><span class="line">    sys.exit(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># okay decompiling garden.pyc</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>就是一个简单的异或处理</p>
+<p>手写解密</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="string">&#x27;2(88\x006\x1a\x10\x10\x1aIKIJ+\x1a\x10\x10\x1a\x06&#x27;</span></span><br><span class="line">string = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> f:</span><br><span class="line">    flag = <span class="built_in">ord</span>(a) ^ <span class="number">123</span></span><br><span class="line">    string += <span class="built_in">chr</span>(flag)</span><br><span class="line"><span class="built_in">print</span>(string)</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<img src="https://i.loli.net/2021/05/27/rh6dpsqGyiYA1vJ.png" style="zoom:150%;">
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://neptunevii.xyz/2021/05/27/ISCC-Garden/" data-id="ckp6axvga0000vwv5774e21mj" data-title="ISCC Garden" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Re-WP/" rel="tag">Re_WP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ISCC-Analysis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/05/27/ISCC-Analysis/" class="article-date">
@@ -423,6 +477,10 @@
       <ul>
         
           <li>
+            <a href="/2021/05/27/ISCC-Garden/">ISCC Garden</a>
+          </li>
+        
+          <li>
             <a href="/2021/05/27/ISCC-Analysis/">ISCC Analysis</a>
           </li>
         
@@ -436,10 +494,6 @@
         
           <li>
             <a href="/2021/03/21/w/">w</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/21/hello-world/">Hello World</a>
           </li>
         
       </ul>
