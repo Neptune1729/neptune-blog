@@ -71,6 +71,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ISCC-Analysis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/27/ISCC-Analysis/" class="article-date">
+  <time class="dt-published" datetime="2021-05-27T01:50:34.000Z" itemprop="datePublished">2021-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/27/ISCC-Analysis/">ISCC Analysis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="ISCC-Analysis-复现"><a href="#ISCC-Analysis-复现" class="headerlink" title="ISCC Analysis 复现"></a>ISCC Analysis 复现</h5><p>下载到附件(.exe文件)</p>
+<p>程序有错就不运行了</p>
+<p>康一下是32位文件</p>
+<p><img src="https://i.loli.net/2021/05/27/Cva5kptWn1TRSMV.png" alt="image-20210527100619032"></p>
+<p>IDA分析一下</p>
+<p><img src="https://i.loli.net/2021/05/27/IQdth8fPTF3Hxyw.png"></p>
+<p><img src="https://i.loli.net/2021/05/27/VOPIeoWpZi6lYjB.png"></p>
+<p><img src="https://i.loli.net/2021/05/27/Qv1VAHDNuRXGhi2.png"></p>
+<p>是对flag进行加密，key为”Reverse”</p>
+<p>手动解密看看</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">a1=[<span class="number">67</span>,<span class="number">-33</span>,<span class="number">20</span>,<span class="number">3</span>,<span class="number">13</span>,<span class="number">44</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">23</span>,<span class="number">23</span>,<span class="number">8</span>,<span class="number">-4</span>,<span class="number">43</span>,<span class="number">-6</span>,<span class="number">20</span>,<span class="number">23</span>,<span class="number">-7</span>,<span class="number">37</span>,<span class="number">-11</span>,<span class="number">34</span>,<span class="number">61</span>,<span class="number">-50</span>,<span class="number">24</span>,<span class="number">22</span>,<span class="number">10</span>,<span class="number">0</span>]</span><br><span class="line">str1 = <span class="string">&quot;REVERSE&quot;</span></span><br><span class="line"><span class="meta">#print(ord(str1[3]))</span></span><br><span class="line">a3=<span class="number">25</span></span><br><span class="line">print(a1)</span><br><span class="line">list1 = [<span class="number">0</span>]*<span class="number">7</span></span><br><span class="line">temp1 = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> p in range(len(str1)):</span><br><span class="line">	list1[p] = ord(str1[p])</span><br><span class="line"><span class="meta">#print(list1)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k in range(len(list1)):</span><br><span class="line">	list1[k] %= <span class="number">64</span></span><br><span class="line"><span class="meta">#print(list1)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n in range(<span class="number">100</span>):</span><br><span class="line">	<span class="meta">#print((list1[n%7]) &amp; 1)</span></span><br><span class="line">	<span class="meta">#print(n)</span></span><br><span class="line">	<span class="keyword">if</span>(n&gt;=a3):</span><br><span class="line">		<span class="meta">#print(n)</span></span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	elif(((list1[n%<span class="number">7</span>]) &amp; <span class="number">1</span>)!=<span class="number">0</span>):</span><br><span class="line">		temp1 = a1[n] - <span class="number">2</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		temp1 = a1[n] - <span class="number">1</span></span><br><span class="line">	a1[n] = temp1</span><br><span class="line">	<span class="meta">#print(temp1)</span></span><br><span class="line">print(a1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> m in range(<span class="keyword">int</span>(a3/<span class="number">2</span>)):</span><br><span class="line">	temp = a1[a3-m<span class="number">-1</span>]</span><br><span class="line">	a1[a3-m<span class="number">-1</span>] = a1[m]</span><br><span class="line">	a1[m] = temp</span><br><span class="line"></span><br><span class="line">print(a1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> l in range(a3):</span><br><span class="line">	<span class="meta">#print(l)</span></span><br><span class="line">	a1[l] -= list1[l%<span class="number">7</span>]	</span><br><span class="line"></span><br><span class="line">print(a1)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> j in range(a3):</span><br><span class="line">	a1[a3-j<span class="number">-1</span>] = a1[a3-j] + a1[a3-j<span class="number">-1</span>] </span><br><span class="line"></span><br><span class="line">print(a1)</span><br><span class="line"></span><br><span class="line">string1 = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i in range(a3):</span><br><span class="line">	a1[i] += <span class="number">64</span></span><br><span class="line">	string1 += chr(a1[i])</span><br><span class="line"></span><br><span class="line">print(string1)</span><br><span class="line"></span><br><span class="line"><span class="meta">#print(a1)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://i.loli.net/2021/05/27/hRqSlH5ptZjam9M.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://neptunevii.xyz/2021/05/27/ISCC-Analysis/" data-id="ckp69p71g0000owv5ckjt8zwn" data-title="ISCC Analysis" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Re-WP/" rel="tag">Re_WP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ISCC-similar" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/05/26/ISCC-similar/" class="article-date">
@@ -366,6 +421,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/05/27/ISCC-Analysis/">ISCC Analysis</a>
+          </li>
         
           <li>
             <a href="/2021/05/26/ISCC-similar/">ISCC similar</a>
