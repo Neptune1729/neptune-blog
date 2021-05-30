@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>DozerCTF_iwanna | Hello</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="RE I wanna 下载附件，是知名游戏I wanna 玩一下   (手残党不玩了) 运行游戏是会生成save文件(用WinHex打开康康)  猜测可能是关于关卡，人物狗die次数，游戏运行时间等信息，试了几次后找到让地图变化的位置：   改变地图编号*(更改不存在的关卡号会报错)后发现隐藏关卡(01-45)*：  看到Doz大致就可以去猜测了 此处更改人物位置来看到完整的flag    技术太">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DozerCTF_iwanna">
+<meta property="og:url" content="https://neptunevii.xyz/2021/05/30/DozerCTF-iwanna/index.html">
+<meta property="og:site_name" content="Hello">
+<meta property="og:description" content="RE I wanna 下载附件，是知名游戏I wanna 玩一下   (手残党不玩了) 运行游戏是会生成save文件(用WinHex打开康康)  猜测可能是关于关卡，人物狗die次数，游戏运行时间等信息，试了几次后找到让地图变化的位置：   改变地图编号*(更改不存在的关卡号会报错)后发现隐藏关卡(01-45)*：  看到Doz大致就可以去猜测了 此处更改人物位置来看到完整的flag    技术太">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://neptunevii.xyz/.xyz//image/DozerCTF-iwanna/taVxZqHJ59SGhA7.jpg">
+<meta property="og:image" content="https://neptunevii.xyz/.xyz//image/DozerCTF-iwanna/tYK1TMrGikS2sVu.jpg">
+<meta property="og:image" content="https://neptunevii.xyz/.xyz//image/DozerCTF-iwanna/5qdHVX3aOkDPfcK.jpg">
+<meta property="og:image" content="https://neptunevii.xyz/.xyz//image/DozerCTF-iwanna/6cesXIa3lLAhCmz.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/30/gpvJq5M9ktjnBfu.jpg">
+<meta property="og:image" content="https://neptunevii.xyz/.xyz//image/DozerCTF-iwanna/gsJ2pERcUAu3VoP.jpg">
+<meta property="og:image" content="https://neptunevii.xyz/.xyz//image/DozerCTF-iwanna/cNlGzF9QK3IP1AS.jpg">
+<meta property="og:image" content="https://neptunevii.xyz/.xyz//image/DozerCTF-iwanna/lutMPEeO4CUnXQI.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/05/30/VchYzuS857k4xgQ.jpg">
+<meta property="article:published_time" content="2021-05-30T13:59:22.000Z">
+<meta property="article:modified_time" content="2021-05-30T14:03:07.259Z">
+<meta property="article:author" content="Neptune Villas">
+<meta property="article:tag" content="Re_WP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://neptunevii.xyz/.xyz//image/DozerCTF-iwanna/taVxZqHJ59SGhA7.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hello</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://neptunevii.xyz"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-DozerCTF-iwanna" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/30/DozerCTF-iwanna/" class="article-date">
+  <time class="dt-published" datetime="2021-05-30T13:59:22.000Z" itemprop="datePublished">2021-05-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      DozerCTF_iwanna
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>RE</strong></p>
+<p>I wanna</p>
+<p>下载附件，是知名游戏I wanna</p>
+<p>玩一下</p>
+<p><img src="/.xyz//image/DozerCTF-iwanna/taVxZqHJ59SGhA7.jpg" alt="img"></p>
+<p><img src="/.xyz//image/DozerCTF-iwanna/tYK1TMrGikS2sVu.jpg" alt="img"></p>
+<p>(手残党不玩了)</p>
+<p>运行游戏是会生成save文件(用WinHex打开康康)</p>
+<p><img src="/.xyz//image/DozerCTF-iwanna/5qdHVX3aOkDPfcK.jpg" alt="img"></p>
+<p>猜测可能是关于关卡，人物狗die次数，游戏运行时间等信息，试了几次后找到让地图变化的位置：</p>
+<p><img src="/.xyz//image/DozerCTF-iwanna/6cesXIa3lLAhCmz.jpg" alt="img"></p>
+<p><img src="https://i.loli.net/2021/05/30/gpvJq5M9ktjnBfu.jpg" alt="img"></p>
+<p>改变地图编号*(更改不存在的关卡号会报错)<em>后发现隐藏关卡</em>(01-45)*：</p>
+<p><img src="/.xyz//image/DozerCTF-iwanna/gsJ2pERcUAu3VoP.jpg" alt="img"></p>
+<p>看到Doz大致就可以去猜测了</p>
+<p>此处更改人物位置来看到完整的flag</p>
+<p><img src="/.xyz//image/DozerCTF-iwanna/cNlGzF9QK3IP1AS.jpg" alt="img"></p>
+<p><img src="/.xyz//image/DozerCTF-iwanna/lutMPEeO4CUnXQI.jpg" alt="img"></p>
+<p><img src="https://i.loli.net/2021/05/30/VchYzuS857k4xgQ.jpg" alt="img"></p>
+<p>技术太菜，没法边玩边记，直接录屏，然后得出flag:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dozerctf&#123;i_wanna_To_be_THE_gay&#125; </span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://neptunevii.xyz/2021/05/30/DozerCTF-iwanna/" data-id="ckpb96pq80000k0v5gx3ygt3t" data-title="DozerCTF_iwanna" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Re-WP/" rel="tag">Re_WP</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/27/ISCC-Garden/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ISCC Garden</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Re-WP/" rel="tag">Re_WP</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Re-WP/" style="font-size: 10px;">Re_WP</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/30/DozerCTF-iwanna/">DozerCTF_iwanna</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/27/ISCC-Garden/">ISCC Garden</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/27/ISCC-Analysis/">ISCC Analysis</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/26/ISCC-similar/">ISCC similar</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/20/CISCN2021/">CISCN2021</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Neptune Villas<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
